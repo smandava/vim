@@ -19,7 +19,7 @@ map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 :endif
 
 "colorscheme zenburn
-colorscheme mayansmoke
+"colorscheme mayansmoke
 
 set vb t_vb=
 

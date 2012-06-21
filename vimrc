@@ -1,52 +1,55 @@
 """ vim:foldmethod=marker:textwidth=78
 
 set nocompatible
+let mapleader=","
 
 """ Pathogen {{{1 
-"set runtimepath=~/vim,$VIMRUNTIME
+set runtimepath=~/vim,$VIMRUNTIME
 source ~\vim\bundle\vim-pathogen\autoload\pathogen.vim
 call pathogen#infect('~/vim/bundle')
 call pathogen#runtime_append_all_bundles()
-call pathogen#helptags
+call pathogen#helptags()
 
 """ }}}1
-let mapleader=","
 
 """" Encoding and Internationalisation {{{1
-"
-"set encoding=utf-8 " This being the 21st century, I use Unicode
-"set delcombine " Delete combining characters individually
-"
+
+set encoding=utf-8 " This being the 21st century, I use Unicode
+set delcombine " Delete combining characters individually
+
 """" }}}1
-"
+
 """" Filetype and Syntax {{{1
-"
-"filetype plugin indent on " Turn on all plugins
-"if &t_Co > 1 || has('gui_running')
-"	syntax enable " Syntax highlighting should be on for color terminals
-"endif
-"
+
+filetype plugin indent on " Turn on all plugins
+if &t_Co > 1 || has('gui_running')
+	syntax enable " Syntax highlighting should be on for color terminals
+endif
+
 """" }}}1
-"
-"set encoding=utf-8 
-"
-"filetype plugin on
-"filetype plugin indent on
-"set runtimepath=~/vim,$VIMRUNTIME
-"
-""set mouse=a
-"set delcombine  " Delete combining characters individually
-"set incsearch
-"
-"if &t_Co > 1 || has('gui_running')
-"	syntax enable " Syntax highlighting should be on for color terminals
-"	set hlsearch
-"endif
-"
-"set showmatch " Show match for closing member of a natural pair with cursor
-"set matchtime=4 " Jump to matching character briefly (for .4 sec.)
-"set ic
-"
+
+"""" Search Options {{{1
+set incsearch
+set hlsearch
+set ignorecase
+"""" }}}1
+
+"""" Matching {{{1
+set showmatch " Show match for closing member of a natural pair with cursor
+set matchtime=4 " Jump to matching character briefly (for .4 sec.)
+"""" }}}1
+
+"""" Status Line  {{{1
+set laststatus=2 " Always show the status line
+set ruler " Always show status bar and position in file
+set showmode " Show the current editing mode at all times
+set showcmd " Show incomplete commands
+set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+"""" }}}1
+
+"map <C-Up> :bn<CR>
+"map <C-Down> :bp<CR>
+
 """" Session Persistence 
 """" History Preservation 
 ""   - Maximum size of a register is 1K
@@ -139,18 +142,10 @@ let mapleader=","
 "
 "
 "
-"""" Status Line 
-"set laststatus=2 " Always show the status line
-"set ruler " Always show status bar and position in file
-"set showmode " Show the current editing mode at all times
-"set showcmd " Show incomplete commands
 "
 "autocmd FileType cs
 "      \ setlocal spell |
 "
-"map <C-Up> :bn<CR>
-"map <C-Down> :bp<CR>
-"set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 "filetype plugin on
 "let g:GetLatestVimScripts_allowautoinstall=1
 "autocmd BufRead,BufNewFile content.txt setfiletype fitnesse
