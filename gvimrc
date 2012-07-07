@@ -1,16 +1,16 @@
-"Toggle toolbar and menu bar.
 set guioptions-=r
 set guioptions-=T
 set guioptions-=m
+"Toggle toolbar and menu bar.
 
-map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
+noremap <silent> <Leader><C-M> :if &guioptions =~# 'T' <Bar>
                         \set guioptions-=T <Bar>
-                        \set guioptions-=m <bar> 
-						\set guioptions-=r
+                        \set guioptions-=m <Bar>
+			\set guioptions-=r <CR>
                     \else <Bar>
                         \set guioptions+=T <Bar>
-                        \set guioptions+=m <Bar>
-						\set guioptions-=r <Bar>
+                        \set guioptions+=m <Bar> 
+			\set guioptions+=r <Bar>
                     \endif<CR>
 "Font.
 "set guifont=Monaco
@@ -18,7 +18,7 @@ map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 :	set guifont=Consolas:h11:cANSI
 :endif
 
-"colorscheme zenburn
+colorscheme zenburn
 "colorscheme mayansmoke
 
 set vb t_vb=
