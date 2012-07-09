@@ -21,8 +21,7 @@ noremap <silent> <Leader><C-M> :if &guioptions =~# 'T' <Bar>
 :endif
 
 colorscheme zenburn
-colorscheme mayansmoke
-
+"colorscheme mayansmoke
 
 set vb t_vb=
 
