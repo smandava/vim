@@ -1,7 +1,9 @@
 set guioptions-=r
 set guioptions-=T
 set guioptions-=m
+set mouse=a
 "Toggle toolbar and menu bar.
+
 
 noremap <silent> <Leader><C-M> :if &guioptions =~# 'T' <Bar>
                         \set guioptions-=T <Bar>
@@ -19,7 +21,8 @@ noremap <silent> <Leader><C-M> :if &guioptions =~# 'T' <Bar>
 :endif
 
 colorscheme zenburn
-"colorscheme mayansmoke
+colorscheme mayansmoke
+
 
 set vb t_vb=
 
