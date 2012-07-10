@@ -79,15 +79,17 @@ nnoremap <silent> <Leader>fl     :FufLine<CR>
 nnoremap <silent> <Leader>fL     :FufLine!<CR>
 nnoremap <silent> <Leader>fh     :FufHelp<CR>
 nnoremap <silent> <Leader>fw     :call fuf#givenfile#launch('', 0, 'WtDev>', readfile('c:\NGT\dat\code.dat'))<CR>
+
+nnoremap <silent> <Leader>d     :FufDirWithCurrentBufferDir<CR>
+nnoremap <silent> <Leader>D     :FufDirWithFullCwd<CR>
+nnoremap <silent> <Leader><C-d> :FufDir<CR>
+
 "nnoremap <silent> <Leader>w     :call fuf#givendir#launch('', 0, 'WtDev>', readfile('c:\wtIndex'))<CR>
 
 
 "nnoremap <silent> <Leader>l     :FufCoverageFileChange<CR>
 "nnoremap <silent> <Leader>L     :FufCoverageFileChange<CR>
 "nnoremap <silent> <Leader><C-l> :FufCoverageFileRegister<CR>
-"nnoremap <silent> <Leader>d     :FufDirWithCurrentBufferDir<CR>
-"nnoremap <silent> <Leader>D     :FufDirWithFullCwd<CR>
-"nnoremap <silent> <Leader><C-d> :FufDir<CR>
 "nnoremap <silent> <Leader>u     :FufBookmarkFile<CR>
 "nnoremap <silent> <Leader><C-u> :FufBookmarkFileAdd<CR>
 "vnoremap <silent> <Leader><C-u> :FufBookmarkFileAddAsSelectedText<CR>
