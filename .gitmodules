@@ -7,6 +7,3 @@
 [submodule "bundle/mayansmoke"]
 	path = bundle/mayansmoke
 	url = https://github.com/vim-scripts/mayansmoke
-[submodule "bundle/L9"]
-	path = bundle/L9
-	url = https://github.com/vim-scripts/L9.git
