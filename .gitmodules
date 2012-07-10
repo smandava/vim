@@ -10,6 +10,3 @@
 [submodule "bundle/L9"]
 	path = bundle/L9
 	url = https://github.com/vim-scripts/L9.git
-[submodule "bundle/FuzzyFinder"]
-	path = bundle/FuzzyFinder
-	url = https://github.com/vim-scripts/FuzzyFinder.git
