@@ -55,7 +55,6 @@ autocmd BufRead *
       \ exec "set path+=".s:tempPath
 """" }}}1
 
-
 """" Fuzzy Finder {{{1
 let g:fuf_modesDisable = []
 let g:fuf_mrufile_maxItem = 400
@@ -80,9 +79,15 @@ nnoremap <silent> <Leader>fL     :FufLine!<CR>
 nnoremap <silent> <Leader>fh     :FufHelp<CR>
 nnoremap <silent> <Leader>fw     :call fuf#givenfile#launch('', 0, 'WtDev>', readfile('c:\NGT\dat\code.dat'))<CR>
 
-nnoremap <silent> <Leader>d     :FufDirWithCurrentBufferDir<CR>
-nnoremap <silent> <Leader>D     :FufDirWithFullCwd<CR>
-nnoremap <silent> <Leader><C-d> :FufDir<CR>
+nnoremap <silent> <Leader>fd     :FufDirWithCurrentBufferDir<CR>
+nnoremap <silent> <Leader>fD     :FufDirWithFullCwd<CR>
+nnoremap <silent> <Leader>f<C-d> :FufDir<CR>
+
+nnoremap <silent> <Leader>fm     :FufBookmarkFile<CR>
+nnoremap <silent> <Leader>f<C-m> :FufBookmarkFileAdd<CR>
+vnoremap <silent> <Leader>f<C-m> :FufBookmarkFileAddAsSelectedText<CR>
+nnoremap <silent> <Leader>fi     :FufBookmarkDir<CR>
+nnoremap <silent> <Leader>f<C-i> :FufBookmarkDirAdd<CR>
 
 "nnoremap <silent> <Leader>w     :call fuf#givendir#launch('', 0, 'WtDev>', readfile('c:\wtIndex'))<CR>
 
@@ -90,11 +95,6 @@ nnoremap <silent> <Leader><C-d> :FufDir<CR>
 "nnoremap <silent> <Leader>l     :FufCoverageFileChange<CR>
 "nnoremap <silent> <Leader>L     :FufCoverageFileChange<CR>
 "nnoremap <silent> <Leader><C-l> :FufCoverageFileRegister<CR>
-"nnoremap <silent> <Leader>u     :FufBookmarkFile<CR>
-"nnoremap <silent> <Leader><C-u> :FufBookmarkFileAdd<CR>
-"vnoremap <silent> <Leader><C-u> :FufBookmarkFileAddAsSelectedText<CR>
-"nnoremap <silent> <Leader>i     :FufBookmarkDir<CR>
-"nnoremap <silent> <Leader><C-i> :FufBookmarkDirAdd<CR>
 "nnoremap <silent> <Leader>t     :FufTag<CR>
 "nnoremap <silent> <Leader>T     :FufTag!<CR>
 "nnoremap <silent> <Leader><C-]> :FufTagWithCursorWord!<CR>
@@ -116,6 +116,29 @@ nnoremap <silent> <Leader><C-d> :FufDir<CR>
 "nnoremap <silent> <Leader>e     :FufEditDataFile<CR>
 "nnoremap <silent> <Leader>r     :FufRenewCache<CR>
 "
+"""" }}}1
+
+"""" My Shortcuts {{{1
+
+nnoremap <silent> <Leader>t :TagbarToggle<CR>
+
+"""" }}}1
+
+"""" Syntax Checking {{{1
+
+let g:syntastic_mode_map = { 'mode': 'passive',
+                           \ 'active_filetypes': ['javascript','xml'],
+                           \ 'passive_filetypes': [] }
+
+nnoremap <silent> <Leader>s :SyntasticCheck<CR>
+
+set statusline+=%{SyntasticStatuslineFlag()}
+
+"""" }}}1
+
+"""" Command Mode behavioir {{{1
+set wildmode=longest,list,full
+set wildmenu
 """" }}}1
 
 "map <C-Up> :bn<CR>
@@ -259,3 +282,7 @@ nnoremap <silent> <Leader><C-d> :FufDir<CR>
 "runtime! macros/editExisting.vim
 "set ts=4
 "
+let g:tagbar_type_javascript = {
+    \ 'ctagsbin' : 'c:\Users\smandava\work\bin\jsctags.bat'
+\ }
+
