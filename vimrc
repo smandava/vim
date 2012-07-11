@@ -137,7 +137,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 """" }}}1
 
 """" Command Mode behavioir {{{1
-set wildmode=longest,list,full
+set wildmode=list:full
 set wildmenu
 """" }}}1
 
