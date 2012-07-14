@@ -20,8 +20,8 @@ noremap <silent> <Leader><C-M> :if &guioptions =~# 'T' <Bar>
 :	set guifont=Consolas:h11:cANSI
 :endif
 
-colorscheme zenburn
-colorscheme mayansmoke
+"colorscheme zenburn
+"colorscheme mayansmoke
 
 
 set vb t_vb=

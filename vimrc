@@ -24,6 +24,9 @@ set delcombine " Delete combining characters individually
 filetype plugin indent on " Turn on all plugins
 if &t_Co > 1 || has('gui_running')
 	syntax enable " Syntax highlighting should be on for color terminals
+	set background=dark
+	colors solarized
+        call togglebg#map("<Leader><F5>")
 endif
 
 """" }}}1
