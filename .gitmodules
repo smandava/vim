@@ -19,12 +19,3 @@
 [submodule "bundle/Align"]
 	path = bundle/Align
 	url = https://github.com/vim-scripts/Align.git
-[submodule "bungle/FuzzyFinder"]
-	path = bungle/FuzzyFinder
-	url = https://github.com/vim-scripts/FuzzyFinder.git
-[submodule "bungle/L9"]
-	path = bungle/L9
-	url = https://github.com/vim-scripts/L9.git
-[submodule "bundel/jshint"]
-	path = bundel/jshint
-	url = https://github.com/walm/jshint.vim.git
