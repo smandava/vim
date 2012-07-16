@@ -92,12 +92,12 @@ vnoremap <silent> <Leader>f<C-m> :FufBookmarkFileAddAsSelectedText<CR>
 nnoremap <silent> <Leader>fi     :FufBookmarkDir<CR>
 nnoremap <silent> <Leader>f<C-i> :FufBookmarkDirAdd<CR>
 
+nnoremap <silent> <Leader>fg     :FufCoverageFile<CR>
+nnoremap <silent> <Leader>fG     :FufCoverageFileChange<CR>
+nnoremap <silent> <Leader>f<C-g> :FufCoverageFileRegister<CR>
 "nnoremap <silent> <Leader>w     :call fuf#givendir#launch('', 0, 'WtDev>', readfile('c:\wtIndex'))<CR>
 
 
-"nnoremap <silent> <Leader>l     :FufCoverageFileChange<CR>
-"nnoremap <silent> <Leader>L     :FufCoverageFileChange<CR>
-"nnoremap <silent> <Leader><C-l> :FufCoverageFileRegister<CR>
 "nnoremap <silent> <Leader>t     :FufTag<CR>
 "nnoremap <silent> <Leader>T     :FufTag!<CR>
 "nnoremap <silent> <Leader><C-]> :FufTagWithCursorWord!<CR>
