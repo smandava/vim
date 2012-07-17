@@ -144,6 +144,13 @@ set wildmode=list:full
 set wildmenu
 """" }}}1
 
+"""" Xml {{{1
+au BufRead  *.xaml setfiletype XML
+au FileType xml let &l:equalprg='xmllint --format --recover -'
+
+"""" }}}1
+
+
 "map <C-Up> :bn<CR>
 "map <C-Down> :bp<CR>
 
