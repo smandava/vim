@@ -80,7 +80,6 @@ nnoremap <silent> <Leader>fb     :FufBuffer<CR>
 nnoremap <silent> <Leader>fl     :FufLine<CR>
 nnoremap <silent> <Leader>fL     :FufLine!<CR>
 nnoremap <silent> <Leader>fh     :FufHelp<CR>
-nnoremap <silent> <Leader>fw     :call fuf#givenfile#launch('', 0, 'WtDev>', readfile('c:\NGT\dat\code.dat'))<CR>
 
 nnoremap <silent> <Leader>fd     :FufDirWithCurrentBufferDir<CR>
 nnoremap <silent> <Leader>fD     :FufDirWithFullCwd<CR>
