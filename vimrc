@@ -150,6 +150,34 @@ au FileType xml let &l:equalprg='xmllint --format --recover -'
 """" }}}1
 
 
+"""" General Text Editing  {{{1
+
+" All files without a filetype are presumed to be plain text
+"autocmd BufRead,BufNewFile *
+"			\ if &filetype == '' |
+"			\   setlocal filetype=text |
+"			\ endif
+
+" Use light indentation and end sentences with a single space when formatting
+" with gq
+
+" Friendlier text editing settings; auto-indentation, narrow (but existent)
+" margins, and auto-format of paragraphs in addition to recognition of
+" numbered lists
+autocmd FileType text
+			\ setlocal autoindent |
+			\ setlocal textwidth=78 |
+			\ setlocal formatoptions+=an |
+                        \ set tabstop=2 shiftwidth=2 nojoinspaces
+
+" A comprehensive dictionary file culled from OpenOffice's American and
+" British English dictionaries will be used here. You can get the same
+" dictionary by changing directory to $OOO_ROOT/share/dict/ooo and doing:
+"		cat en_*.dic | sort | uniq | perl -pnle 's!/.*$!!'
+
+set dictionary+=~/vim/big-dict
+set complete+=k " Add dictionary search (as per dictionary option)
+
 "map <C-Up> :bn<CR>
 "map <C-Down> :bp<CR>
 
@@ -211,34 +239,6 @@ au FileType xml let &l:equalprg='xmllint --format --recover -'
 "
 """""""""""""" Text editiong only """"""""""""""""""""""
 "
-"""" General Text Editing 
-"""" Features used regardless the type of file edited, or for broad purposes
-"""" such as 'documentation' and 'programming' in general
-"
-"" All files without a filetype are presumed to be plain text
-""autocmd BufRead,BufNewFile *
-""			\ if &filetype == '' |
-""			\   setlocal filetype=text |
-""			\ endif
-"
-"" Use light indentation and end sentences with a single space when formatting
-"" with gq
-""set tabstop=2 shiftwidth=2 nojoinspaces
-"
-"" Friendlier text editing settings; auto-indentation, narrow (but existent)
-"" margins, and auto-format of paragraphs in addition to recognition of
-"" numbered lists
-""autocmd FileType text
-""			\ setlocal autoindent |
-""			\ setlocal textwidth=78 |
-""			\ setlocal formatoptions+=an
-"
-"" A comprehensive dictionary file culled from OpenOffice's American and
-"" British English dictionaries will be used here. You can get the same
-"" dictionary by changing directory to $OOO_ROOT/share/dict/ooo and doing:
-""		cat en_*.dic | sort | uniq | perl -pnle 's!/.*$!!'
-"set dictionary+=~/.vim/big-dict
-"set complete+=k " Add dictionary search (as per dictionary option)
 "set wildmode=list:full
 "set wildmenu
 "
