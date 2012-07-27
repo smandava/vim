@@ -94,16 +94,18 @@ nnoremap <silent> <Leader>f<C-i> :FufBookmarkDirAdd<CR>
 nnoremap <silent> <Leader>fg     :FufCoverageFile<CR>
 nnoremap <silent> <Leader>fG     :FufCoverageFileChange<CR>
 nnoremap <silent> <Leader>f<C-g> :FufCoverageFileRegister<CR>
+
+nnoremap <silent> <Leader>ft     :FufBufferTag<CR>
+nnoremap <silent> <Leader>fT     :FufBufferTag!<CR>
+vnoremap <silent> <Leader>ft     :FufBufferTagWithSelectedText!<CR>
+vnoremap <silent> <Leader>fT     :FufBufferTagWithSelectedText<CR>
+
 "nnoremap <silent> <Leader>w     :call fuf#givendir#launch('', 0, 'WtDev>', readfile('c:\wtIndex'))<CR>
 
 
 "nnoremap <silent> <Leader>t     :FufTag<CR>
 "nnoremap <silent> <Leader>T     :FufTag!<CR>
 "nnoremap <silent> <Leader><C-]> :FufTagWithCursorWord!<CR>
-"nnoremap <silent> <Leader>,     :FufBufferTag<CR>
-"nnoremap <silent> <Leader><     :FufBufferTag!<CR>
-"vnoremap <silent> <Leader>,     :FufBufferTagWithSelectedText!<CR>
-"vnoremap <silent> <Leader><     :FufBufferTagWithSelectedText<CR>
 "nnoremap <silent> <Leader>}     :FufBufferTagWithCursorWord!<CR>
 "nnoremap <silent> <Leader>.     :FufBufferTagAll<CR>
 "nnoremap <silent> <Leader>>     :FufBufferTagAll!<CR>
@@ -149,8 +151,20 @@ au FileType xml let &l:equalprg='xmllint --format --recover -'
 
 """" }}}1
 
+"""" Windows specific {{{1
 
-"""" General Text Editing  {{{1
+if (has('win32'))
+	behave mswin 
+	" se cursor keys wrap to previous/next line 
+	set backspace=indent,eol,start whichwrap+=<,>,[,]
+
+	" backspace in Visual mode deletes selection
+	vnoremap <BS> d
+endif
+
+""""}}}1
+
+"""" Text Processing {{{1
 
 " All files without a filetype are presumed to be plain text
 "autocmd BufRead,BufNewFile *
@@ -162,13 +176,14 @@ au FileType xml let &l:equalprg='xmllint --format --recover -'
 " with gq
 
 " Friendlier text editing settings; auto-indentation, narrow (but existent)
-" margins, and auto-format of paragraphs in addition to recognition of
+" margin, and auto-format of paragraphs in addition to recognition of
 " numbered lists
 autocmd FileType text
 			\ setlocal autoindent |
 			\ setlocal textwidth=78 |
 			\ setlocal formatoptions+=an |
                         \ set tabstop=2 shiftwidth=2 nojoinspaces
+"""" }}}1
 
 " A comprehensive dictionary file culled from OpenOffice's American and
 " British English dictionaries will be used here. You can get the same
@@ -291,7 +306,7 @@ set complete+=k " Add dictionary search (as per dictionary option)
 "runtime! macros/editExisting.vim
 "set ts=4
 "
-let g:tagbar_type_javascript = {
-    \ 'ctagsbin' : 'c:\Users\smandava\work\bin\jsctags.bat'
-\ }
+"let g:tagbar_type_javascript = {
+"    \ 'ctagsbin' : 'c:\bin\jsctags.bat'
+"\ }
 
