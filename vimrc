@@ -14,7 +14,7 @@ call pathogen#helptags()
 
 """" Encoding and Internationalisation {{{1
 
-set encoding=utf-8 " This being the 21st century, I use Unicode
+"set encoding=utf-8 " This being the 21st century, I use Unicode
 set delcombine " Delete combining characters individually
 
 """" }}}1
@@ -125,6 +125,8 @@ vnoremap <silent> <Leader>fT     :FufBufferTagWithSelectedText<CR>
 """" My Shortcuts {{{1
 
 nnoremap <silent> <Leader>t :TagbarToggle<CR>
+nnoremap <silent> <Leader><F10> :vimgrep /<C-R><C-W>/ % <CR>:cope<CR>
+nnoremap <silent> <Leader><F11> :vimgrep /\<<C-R><C-W>\>/ % <CR>:cope<CR>
 
 """" }}}1
 
@@ -300,12 +302,10 @@ set complete+=k " Add dictionary search (as per dictionary option)
 "command! -nargs=0 WtOct :call OracleCreateTables()
 "
 "nnoremap <F5> :buffers<CR>:buffer<Space>
-"nnoremap <F10> :vimgrep /<C-R><C-W>/ % <CR>:cope<CR>
-"nnoremap <F11> :vimgrep /\<<C-R><C-W>\>/ % <CR>:cope<CR>
 "
 "runtime! macros/editExisting.vim
 "set ts=4
-"
+
 "let g:tagbar_type_javascript = {
 "    \ 'ctagsbin' : 'c:\bin\jsctags.bat'
 "\ }
