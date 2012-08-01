@@ -34,3 +34,6 @@
 [submodule "bundle/fitnesse"]
 	path = bundle/fitnesse
 	url = https://github.com/vim-scripts/fitnesse.vim.git
+[submodule "bundle/vim-gnupg"]
+	path = bundle/vim-gnupg
+	url = https://github.com/jamessan/vim-gnupg.git
