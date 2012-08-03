@@ -268,7 +268,6 @@ set complete+=k " Add dictionary search (as per dictionary option)
 "
 "filetype plugin on
 "let g:GetLatestVimScripts_allowautoinstall=1
-"autocmd BufRead,BufNewFile content.txt setfiletype fitnesse
 ""autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h |endif
 "set autochdir
 "autocmd FileType python
@@ -277,8 +276,6 @@ set complete+=k " Add dictionary search (as per dictionary option)
 "let g:xml_syntax_folding=1
 "au FileType xml setlocal foldmethod=syntax
 "set noeb vb t_vb=
-"au FileType FITNESSE AlignCtrl=P0p0
-"au FileType FITNESSE set nowrap
 "
 "function BizMeta()
 "	new \wtDev\Code\Business\System\BusinessMetadata\BusinessMetadata.xml

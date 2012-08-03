@@ -48,3 +48,7 @@ nnoremap <silent> <Leader>fW    :call ChangeTrnsportMode()<CR>
 
 autocmd FileType CS if @% =~ "wt\\"|setlocal tags+=c:\ngt\dat\csharptags_201| endif
 autocmd FileType CS if @% =~ "wtdev\\"|setlocal tags+=c:\ngt\dat\csharptags_202| endif
+
+autocmd BufRead,BufNewFile content.txt setfiletype fitnesse
+au FileType FITNESSE AlignCtrl=P0p0
+au FileType FITNESSE set nowrap
