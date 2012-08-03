@@ -187,6 +187,12 @@ autocmd FileType text
                         \ set tabstop=2 shiftwidth=2 nojoinspaces
 """" }}}1
 
+
+autocmd BufReadCmd,FileReadCmd *.\(gpg\|asc\|pgp\) 
+	\ set tabstop=50 |
+	\ set expandtab |
+	\ set nowrap |
+
 " A comprehensive dictionary file culled from OpenOffice's American and
 " British English dictionaries will be used here. You can get the same
 " dictionary by changing directory to $OOO_ROOT/share/dict/ooo and doing:
