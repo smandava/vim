@@ -46,8 +46,11 @@ nnoremap <silent> <Leader>fa    :call TrnsportFitness()<CR>
 nnoremap <silent> <Leader>fw    :call TrnsportCode()<CR>
 nnoremap <silent> <Leader>fW    :call ChangeTrnsportMode()<CR>
 
-autocmd FileType CS if @% =~ "wt\\"|setlocal tags+=c:\ngt\dat\csharptags_201| endif
-autocmd FileType CS if @% =~ "wtdev\\"|setlocal tags+=c:\ngt\dat\csharptags_202| endif
+autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "wt\\"|setlocal tags+=c:\ngt\dat\csharptags_201| endif
+autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "wtdev\\"|setlocal tags+=c:\ngt\dat\csharptags_202| endif
+
+"autocmd FileType CS if @% =~ "wt\\"|setlocal tags+=c:\ngt\dat\csharptags_201| endif
+"autocmd FileType CS if @% =~ "wtdev\\"|setlocal tags+=c:\ngt\dat\csharptags_202| endif
 
 autocmd BufRead,BufNewFile content.txt setfiletype fitnesse
 au FileType FITNESSE AlignCtrl=P0p0

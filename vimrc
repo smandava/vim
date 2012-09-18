@@ -52,10 +52,13 @@ set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=
 
 """" path and edit existing {{{1
 runtime! macros/editExisting.vim
+"
 " Add the current file's directory to the path if not already present.
-autocmd BufRead *
-      \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
-      \ exec "set path+=".s:tempPath
+"autocmd BufRead *
+"      \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
+"      \ exec "setlocal path+=".s:tempPath
+set autochdir
+
 """" }}}1
 
 """" Fuzzy Finder {{{1
@@ -127,6 +130,7 @@ vnoremap <silent> <Leader>fT     :FufBufferTagWithSelectedText<CR>
 nnoremap <silent> <Leader>t :TagbarToggle<CR>
 nnoremap <silent> <Leader><F10> :vimgrep /<C-R><C-W>/ % <CR>:cope<CR>
 nnoremap <silent> <Leader><F11> :vimgrep /\<<C-R><C-W>\>/ % <CR>:cope<CR>
+nnoremap <silent> <Leader>e :silent !start explorer /e, %:p:h<CR>
 
 """" }}}1
 
@@ -169,10 +173,7 @@ endif
 """" Text Processing {{{1
 
 " All files without a filetype are presumed to be plain text
-"autocmd BufRead,BufNewFile *
-"			\ if &filetype == '' |
-"			\   setlocal filetype=text |
-"			\ endif
+"autocmd BufReadCmd,FileReadCmd *.txt set ft=text
 
 " Use light indentation and end sentences with a single space when formatting
 " with gq
@@ -275,7 +276,6 @@ set complete+=k " Add dictionary search (as per dictionary option)
 "filetype plugin on
 "let g:GetLatestVimScripts_allowautoinstall=1
 ""autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h |endif
-"set autochdir
 "autocmd FileType python
 "    \ set tags+=$HOME/.vim/tags/python.ctags |
 "    \ set omnifunc=pythoncomplete#Complete |
