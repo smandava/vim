@@ -2,6 +2,7 @@
 
 set nocompatible
 let mapleader=","
+let maplocalleader=","
 
 """ Pathogen {{{1 
 set runtimepath=~/vim,$VIMRUNTIME
@@ -89,7 +90,7 @@ nnoremap <silent> <Leader>fD     :FufDirWithFullCwd<CR>
 nnoremap <silent> <Leader>f<C-d> :FufDir<CR>
 
 nnoremap <silent> <Leader>fm     :FufBookmarkFile<CR>
-nnoremap <silent> <Leader>f<C-m> :FufBookmarkFileAdd<CR>
+nnoremap <silent> <Leader>fM :FufBookmarkFileAdd<CR>
 vnoremap <silent> <Leader>f<C-m> :FufBookmarkFileAddAsSelectedText<CR>
 nnoremap <silent> <Leader>fi     :FufBookmarkDir<CR>
 nnoremap <silent> <Leader>f<C-i> :FufBookmarkDirAdd<CR>
@@ -102,6 +103,8 @@ nnoremap <silent> <Leader>ft     :FufBufferTag<CR>
 nnoremap <silent> <Leader>fT     :FufBufferTag!<CR>
 vnoremap <silent> <Leader>ft     :FufBufferTagWithSelectedText!<CR>
 vnoremap <silent> <Leader>fT     :FufBufferTagWithSelectedText<CR>
+
+nnoremap <silent> <Leader>fe     :FufEditDataFile<CR>
 
 "nnoremap <silent> <Leader>w     :call fuf#givendir#launch('', 0, 'WtDev>', readfile('c:\wtIndex'))<CR>
 
@@ -154,9 +157,10 @@ set wildmenu
 """" Xml {{{1
 au BufRead  *.xaml setfiletype XML
 au FileType xml let &l:equalprg='xmllint --format --recover -'
-let g:xml_syntax_folding=1
-au FileType xml setlocal foldmethod=syntax
-au FileType xml setlocal foldlevel=2
+au FileType xml map <buffer> <Leader>c <esc>a--><esc>'<i<!--<esc>'>$
+"let g:xml_syntax_folding=1
+"au FileType xml setlocal foldmethod=syntax
+"au FileType xml setlocal foldlevel=2
 runtime! macros/matchit.vim
 """" }}}1
 

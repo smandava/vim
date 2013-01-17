@@ -1,15 +1,15 @@
 function! GetTrnsportMode() abort
-	if !exists("b:wtMode") 
-		let b:wtMode='Trunk'
+	if !exists("g:wtMode") 
+		let g:wtMode='Trunk'
 	endif
-	return b:wtMode
+	return g:wtMode
 endfunction
 
 function! ChangeTrnsportMode() abort
 	let mode = GetTrnsportMode()
 	let listener = {}
 	function! listener.onComplete(item,method)
-		let b:wtMode=a:item
+		let g:wtMode=a:item
 	endfunction
 	function! listener.onAbort()
 		echo "abort"
@@ -42,6 +42,10 @@ function! TrnsportCode() abort
 	call fuf#givenfile#launch('', 1, mode . '> ', readfile('c:\NGT\dat\code_' . mode . '.dat'))
 endfunction
 
+function! OpenFitnesseInBrowser(fitnesseFile) abort
+	echo "opening in browser " . a:fitnesseFile
+endfunction
+
 nnoremap <silent> <Leader>fa    :call TrnsportFitness()<CR>
 nnoremap <silent> <Leader>fw    :call TrnsportCode()<CR>
 nnoremap <silent> <Leader>fW    :call ChangeTrnsportMode()<CR>
@@ -56,3 +60,4 @@ autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "br202\\"|setlocal tags+=c:\
 autocmd BufRead,BufNewFile content.txt setfiletype fitnesse
 au FileType FITNESSE AlignCtrl=P0p0
 au FileType FITNESSE set nowrap
+au FileType FITNESSE nnoremap <silent> <Leader>b :call OpenFitnesseInBrowser(expand("%:p:h"))<CR>
