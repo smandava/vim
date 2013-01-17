@@ -1,6 +1,6 @@
 function! GetTrnsportMode() abort
 	if !exists("b:wtMode") 
-		let b:wtMode='202'
+		let b:wtMode='Trunk'
 	endif
 	return b:wtMode
 endfunction
@@ -14,7 +14,7 @@ function! ChangeTrnsportMode() abort
 	function! listener.onAbort()
 		echo "abort"
 	endfunction
-	call fuf#callbackitem#launch('', 0, '> ', listener, ['201','202'],0)
+	call fuf#callbackitem#launch('', 0, '> ', listener, ['Trunk','br202','201'],0)
 endfunction
 
 function! TrnsportFitness() abort
@@ -47,10 +47,11 @@ nnoremap <silent> <Leader>fw    :call TrnsportCode()<CR>
 nnoremap <silent> <Leader>fW    :call ChangeTrnsportMode()<CR>
 
 autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "wt\\"|setlocal tags+=c:\ngt\dat\csharptags_201| endif
-autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "wtdev\\"|setlocal tags+=c:\ngt\dat\csharptags_202| endif
+autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "wtdev\\"|setlocal tags+=c:\ngt\dat\csharptags_Trunk| endif
+autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "br202\\"|setlocal tags+=c:\ngt\dat\csharptags_br202| endif
 
 "autocmd FileType CS if @% =~ "wt\\"|setlocal tags+=c:\ngt\dat\csharptags_201| endif
-"autocmd FileType CS if @% =~ "wtdev\\"|setlocal tags+=c:\ngt\dat\csharptags_202| endif
+"autocmd FileType CS if @% =~ "wtdev\\"|setlocal tags+=c:\ngt\dat\csharptags_Trunk| endif
 
 autocmd BufRead,BufNewFile content.txt setfiletype fitnesse
 au FileType FITNESSE AlignCtrl=P0p0

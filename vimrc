@@ -154,7 +154,10 @@ set wildmenu
 """" Xml {{{1
 au BufRead  *.xaml setfiletype XML
 au FileType xml let &l:equalprg='xmllint --format --recover -'
-
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+au FileType xml setlocal foldlevel=2
+runtime! macros/matchit.vim
 """" }}}1
 
 """" Windows specific {{{1
@@ -279,8 +282,6 @@ set complete+=k " Add dictionary search (as per dictionary option)
 "autocmd FileType python
 "    \ set tags+=$HOME/.vim/tags/python.ctags |
 "    \ set omnifunc=pythoncomplete#Complete |
-"let g:xml_syntax_folding=1
-"au FileType xml setlocal foldmethod=syntax
 "set noeb vb t_vb=
 "
 "function BizMeta()
