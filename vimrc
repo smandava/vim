@@ -164,6 +164,7 @@ au FileType xml map <buffer> <Leader>c <esc>a--><esc>'<i<!--<esc>'>$
 runtime! macros/matchit.vim
 """" }}}1
 
+
 """" Windows specific {{{1
 
 if (has('win32'))
@@ -193,6 +194,15 @@ autocmd FileType text
 			\ setlocal textwidth=78 |
 			\ setlocal formatoptions+=an |
                         \ set tabstop=2 shiftwidth=2 nojoinspaces
+"""" }}}1
+
+"""" Folding {{{1
+nnoremap <silent> <Leader>z0   :set foldlevel=0<CR>
+nnoremap <silent> <Leader>z1   :set foldlevel=1<CR>
+nnoremap <silent> <Leader>z2   :set foldlevel=2<CR>
+nnoremap <silent> <Leader>z3   :set foldlevel=3<CR>
+nnoremap <silent> <Leader>z4   :set foldlevel=4<CR>
+nnoremap <silent> <Leader>z5   :set foldlevel=5<CR>
 """" }}}1
 
 

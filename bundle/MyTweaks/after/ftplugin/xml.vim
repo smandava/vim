@@ -15,6 +15,6 @@ function! s:ToggleFoldMethod() abort
 	endif
 endfunction
 
-nnoremap <buffer> <LocalLeader>z :call <SID>ToggleFoldMethod()<Cr>
+nnoremap <buffer> <Leader>zt :call <SID>ToggleFoldMethod()<Cr>
 
 finish
