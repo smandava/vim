@@ -27,7 +27,7 @@ if &t_Co > 1 || has('gui_running')
 	syntax enable " Syntax highlighting should be on for color terminals
 	set background=dark
 	colors solarized
-        call togglebg#map("<Leader><F5>")
+	call togglebg#map("<Leader><F5>")
 endif
 
 """" }}}1
@@ -67,6 +67,7 @@ let g:fuf_modesDisable = []
 let g:fuf_mrufile_maxItem = 400
 let g:fuf_mrucmd_maxItem = 400
 let g:fuf_maxMenuWidth = 250
+let g:fuf_previewHeight=5
 
 ""nnoremap <Leader><C-b> :! c:\NGT\bin\wtIndex.exe -
 "
@@ -76,6 +77,8 @@ nnoremap <silent> <Leader>ff     :FufFileWithCurrentBufferDir<CR>
 nnoremap <silent> <Leader>fF     :FufFileWithFullCwd<CR>
 noremap <silent> <Leader>f<C-f> :FufFile<CR>
 
+nnoremap <silent> <Leader>fj     :FufJumpList<CR>
+nnoremap <silent> <Leader>f`     :FufChangeList<CR>
 nnoremap <silent> <Leader>fr     :FufMruFile<CR>
 nnoremap <silent> <Leader>fR     :FufMruFileInCwd<CR>
 nnoremap <silent> <Leader>fc     :FufMruCmd<CR>
@@ -154,17 +157,6 @@ set wildmode=list:full
 set wildmenu
 """" }}}1
 
-"""" Xml {{{1
-au BufRead  *.xaml setfiletype XML
-au FileType xml let &l:equalprg='xmllint --format --recover -'
-au FileType xml map <buffer> <Leader>c <esc>a--><esc>'<i<!--<esc>'>$
-"let g:xml_syntax_folding=1
-"au FileType xml setlocal foldmethod=syntax
-"au FileType xml setlocal foldlevel=2
-runtime! macros/matchit.vim
-"""" }}}1
-
-
 """" Windows specific {{{1
 
 if (has('win32'))
@@ -178,24 +170,6 @@ endif
 
 """"}}}1
 
-"""" Text Processing {{{1
-
-" All files without a filetype are presumed to be plain text
-"autocmd BufReadCmd,FileReadCmd *.txt set ft=text
-
-" Use light indentation and end sentences with a single space when formatting
-" with gq
-
-" Friendlier text editing settings; auto-indentation, narrow (but existent)
-" margin, and auto-format of paragraphs in addition to recognition of
-" numbered lists
-autocmd FileType text
-			\ setlocal autoindent |
-			\ setlocal textwidth=78 |
-			\ setlocal formatoptions+=an |
-                        \ set tabstop=2 shiftwidth=2 nojoinspaces
-"""" }}}1
-
 """" Folding {{{1
 nnoremap <silent> <Leader>z0   :set foldlevel=0<CR>
 nnoremap <silent> <Leader>z1   :set foldlevel=1<CR>
@@ -203,6 +177,13 @@ nnoremap <silent> <Leader>z2   :set foldlevel=2<CR>
 nnoremap <silent> <Leader>z3   :set foldlevel=3<CR>
 nnoremap <silent> <Leader>z4   :set foldlevel=4<CR>
 nnoremap <silent> <Leader>z5   :set foldlevel=5<CR>
+"""" }}}1
+
+
+"""" Tab Behavior {{{1
+set tabstop=4
+set shiftwidth=4
+set expandtab
 """" }}}1
 
 

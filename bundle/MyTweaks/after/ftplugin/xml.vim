@@ -17,4 +17,8 @@ endfunction
 
 nnoremap <buffer> <Leader>zt :call <SID>ToggleFoldMethod()<Cr>
 
+au BufRead  *.xaml setfiletype XML
+au FileType xml let &l:equalprg='xmllint --format --recover -'
+au FileType xml map <buffer> <Leader>c <esc>a--><esc>'<i<!--<esc>'>$
+runtime! macros/matchit.vim
 finish

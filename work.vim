@@ -42,9 +42,6 @@ function! TrnsportCode() abort
 	call fuf#givenfile#launch('', 1, mode . '> ', readfile('c:\NGT\dat\code_' . mode . '.dat'))
 endfunction
 
-function! OpenFitnesseInBrowser(fitnesseFile) abort
-	echo "opening in browser " . a:fitnesseFile
-endfunction
 
 nnoremap <silent> <Leader>fa    :call TrnsportFitness()<CR>
 nnoremap <silent> <Leader>fw    :call TrnsportCode()<CR>
@@ -56,8 +53,3 @@ autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "br202\\"|setlocal tags+=c:\
 
 "autocmd FileType CS if @% =~ "wt\\"|setlocal tags+=c:\ngt\dat\csharptags_201| endif
 "autocmd FileType CS if @% =~ "wtdev\\"|setlocal tags+=c:\ngt\dat\csharptags_Trunk| endif
-
-autocmd BufRead,BufNewFile content.txt setfiletype fitnesse
-au FileType FITNESSE AlignCtrl=P0p0
-au FileType FITNESSE set nowrap
-au FileType FITNESSE nnoremap <silent> <Leader>b :call OpenFitnesseInBrowser(expand("%:p:h"))<CR>
