@@ -23,6 +23,9 @@ noremap <silent> <Leader><C-M> :if &guioptions =~# 'T' <Bar>
 "colorscheme zenburn
 "colorscheme mayansmoke
 
+set background=dark
+colors solarized
+call togglebg#map("<Leader><F5>")
 
 set vb t_vb=
 
