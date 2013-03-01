@@ -61,3 +61,9 @@
 [submodule "bundle/tcomment_vim"]
 	path = bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "bundle/lormipsum"]
+	path = bundle/lormipsum
+	url = https://github.com/vim-scripts/loremipsum.git
+[submodule "bundle/vim-dochub"]
+	path = bundle/vim-dochub
+	url = https://github.com/stephenmckinney/vim-dochub.git
