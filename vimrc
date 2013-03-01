@@ -25,9 +25,6 @@ set delcombine " Delete combining characters individually
 filetype plugin indent on " Turn on all plugins
 if &t_Co > 1 || has('gui_running')
 	syntax enable " Syntax highlighting should be on for color terminals
-	set background=dark
-	colors solarized
-	call togglebg#map("<Leader><F5>")
 endif
 
 """" }}}1
@@ -149,6 +146,7 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 nnoremap <silent> <Leader>s :SyntasticCheck<CR>
 
 set statusline+=%{SyntasticStatuslineFlag()}
+let g:syntastic_html_checker=['w3']
 
 """" }}}1
 
@@ -185,6 +183,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 """" }}}1
+
+let g:snippets_dir='~\vim\bundle\snipmate\snippets,~\vim\bundle\MyTweaks\snippets'
 
 
 autocmd BufReadCmd,FileReadCmd *.\(gpg\|asc\|pgp\) 
