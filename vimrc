@@ -184,7 +184,15 @@ set shiftwidth=4
 set expandtab
 """" }}}1
 
+"""" Match it plugin {{{1
+runtime matchit
+autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
+autocmd FileType xhtml let b:match_words = '<\(\w\w*\):</\1,{:}'
+autocmd FileType xml let b:match_words = '<\(\w\w*\):</\1,{:}'
+"""" }}}1
+
 let g:snippets_dir='~\vim\bundle\snipmate\snippets,~\vim\bundle\MyTweaks\snippets'
+let g:launcher_application='Launcher'
 
 
 autocmd BufReadCmd,FileReadCmd *.\(gpg\|asc\|pgp\) 
