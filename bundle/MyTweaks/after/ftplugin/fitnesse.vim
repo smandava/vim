@@ -16,7 +16,7 @@ function! OpenFitnesseInBrowser(fitnesseFile) abort
         let l:parts = []
     endif
     let l:url = 'http://localhost:' . l:port . '/' . join(l:parts,'.')
-    execute 'silent !"c:\Program Files (x86)\Google\Chrome\Application\chrome.exe" ' . l:url
+    execute 'silent !Launcher ' . l:url
 endfunction
 
 nnoremap <silent> <Leader>b :call OpenFitnesseInBrowser(expand("%:p:h"))<CR>

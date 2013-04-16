@@ -134,6 +134,7 @@ nnoremap <silent> <Leader>t :TagbarToggle<CR>
 nnoremap <silent> <Leader><F10> :vimgrep /<C-R><C-W>/ % <CR>:cope<CR>
 nnoremap <silent> <Leader><F11> :vimgrep /\<<C-R><C-W>\>/ % <CR>:cope<CR>
 nnoremap <silent> <Leader>e :silent !start explorer /e, %:p:h<CR>
+nnoremap <silent> <Leader>o :silent !start Launcher %:p<CR>
 
 """" }}}1
 
@@ -146,7 +147,7 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 nnoremap <silent> <Leader>s :SyntasticCheck<CR>
 
 set statusline+=%{SyntasticStatuslineFlag()}
-let g:syntastic_html_checker=['w3']
+let g:syntastic_html_checker='w3'
 
 """" }}}1
 
