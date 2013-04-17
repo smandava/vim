@@ -7,8 +7,8 @@ let maplocalleader=","
 """ Pathogen {{{1 
 set runtimepath=~/vim,$VIMRUNTIME
 source ~/vim/bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect('~/vim/bundle')
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect('~/vim/bundle/{}')
+call pathogen#incubate()
 call pathogen#helptags()
 
 """ }}}1
@@ -165,6 +165,8 @@ if (has('win32'))
 
 	" backspace in Visual mode deletes selection
 	vnoremap <BS> d
+    let g:snippets_dir='~\vim\bundle\snipmate\snippets,~\vim\bundle\MyTweaks\snippets'
+    let g:launcher_application='Launcher'
 endif
 
 """"}}}1
@@ -192,8 +194,6 @@ autocmd FileType xhtml let b:match_words = '<\(\w\w*\):</\1,{:}'
 autocmd FileType xml let b:match_words = '<\(\w\w*\):</\1,{:}'
 """" }}}1
 
-let g:snippets_dir='~\vim\bundle\snipmate\snippets,~\vim\bundle\MyTweaks\snippets'
-let g:launcher_application='Launcher'
 
 
 autocmd BufReadCmd,FileReadCmd *.\(gpg\|asc\|pgp\) 
