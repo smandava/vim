@@ -7,8 +7,8 @@ let maplocalleader=","
 """ Pathogen {{{1 
 set runtimepath=~/vim,$VIMRUNTIME
 source ~/vim/bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect('~/vim/bundle')
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect('~/vim/bundle/{}')
+call pathogen#incubate()
 call pathogen#helptags()
 
 """ }}}1
