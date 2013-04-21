@@ -165,6 +165,8 @@ if (has('win32'))
 
 	" backspace in Visual mode deletes selection
 	vnoremap <BS> d
+    let g:snippets_dir='~\vim\bundle\snipmate\snippets,~\vim\bundle\MyTweaks\snippets'
+    let g:launcher_application='Launcher'
 endif
 
 """"}}}1
@@ -178,7 +180,6 @@ nnoremap <silent> <Leader>z4   :set foldlevel=4<CR>
 nnoremap <silent> <Leader>z5   :set foldlevel=5<CR>
 """" }}}1
 
-
 """" Tab Behavior {{{1
 set tabstop=4
 set shiftwidth=4
@@ -186,15 +187,16 @@ set expandtab
 """" }}}1
 
 """" Match it plugin {{{1
-runtime matchit
+runtime macros/matchit.vim
 autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
 autocmd FileType xhtml let b:match_words = '<\(\w\w*\):</\1,{:}'
 autocmd FileType xml let b:match_words = '<\(\w\w*\):</\1,{:}'
 """" }}}1
 
-let g:snippets_dir='~\vim\bundle\snipmate\snippets,~\vim\bundle\MyTweaks\snippets'
-let g:launcher_application='Launcher'
 
+let g:UltiSnipsSnippetsDir='~/vim/UltiSnips'
+let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsDontReverseSearchPath="1"
 
 autocmd BufReadCmd,FileReadCmd *.\(gpg\|asc\|pgp\) 
 	\ set tabstop=50 |
