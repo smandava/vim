@@ -61,8 +61,12 @@ snippet .
 class="$0"
 endsnippet
 
-snippet "a btn" "Twitter BootStrap button" 
+snippet "a btn" "Twitter BootStrap button with Anchor" 
 <a class="btn$1" ${2:href="${3:#}"}>$0</a>
+endsnippet
+
+snippet "b btn" "Twitter BootStrap button" 
+<button class="btn$1">$0</button>
 endsnippet
 
 global !p
@@ -100,13 +104,13 @@ snippet bspan "Twitter BootStrap Span"
 </div>
 endsnippet
 
-snippet cont "Twitter BootStrap" !b
+snippet cont "Twitter BootStrap container" !b
 <div class="container$1">
     $0
 </div>
 endsnippet
 
-snippet fcont "Twitter BootStrap" !b
+snippet fcont "Twitter BootStrap fluid container" !b
 <div class="container-fluid$1">
     $0
 </div>

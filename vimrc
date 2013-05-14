@@ -194,9 +194,13 @@ autocmd FileType xml let b:match_words = '<\(\w\w*\):</\1,{:}'
 """" }}}1
 
 
+"""" UltiSnips {{{1
 let g:UltiSnipsSnippetsDir='~/vim/UltiSnips'
 let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsDontReverseSearchPath="1"
+inoremap <silent> <c-r><tab> <c-r>=ultisnipext#FindSnippet()<cr>
+nnoremap <silent> <Leader>fu    :call ultisnipext#FuzzyFindSnippet()<CR>
+"""" }}}1
 
 autocmd BufReadCmd,FileReadCmd *.\(gpg\|asc\|pgp\) 
 	\ set tabstop=50 |
