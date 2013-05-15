@@ -25,7 +25,12 @@ function! ultisnipext#FuzzyFindSnippet() abort
 	  echo "Abort"
 	endfunction
 
-    let completes=pyeval("[s.description.__str__() for s in UltiSnips_Manager._snips('',True)]")
+    if has('pyeval') 
+        let completes=pyeval("[s.description.__str__() for s in UltiSnips_Manager._snips('',True)]")
+    else 
+        py vim.command('let completes= %s' % [s.description.__str__() for s in UltiSnips_Manager._snips('',True)])
+    endif
+
 	call fuf#callbackitem#launch('', 0, '> ', atListener, completes,0)
 endfunction
 
@@ -45,7 +50,12 @@ function! ultisnipext#FindSnippet() abort
 	endif
 	let matchlen = 0
 	let matches = []
-    for trigger in pyeval("[s.trigger.__str__() for s in UltiSnips_Manager._snips('',True)]")
+    if has('pyeval') 
+        let triggers=pyeval("[s.description.__str__() for s in UltiSnips_Manager._snips('',True)]")
+    else 
+        py vim.command('let triggers= %s' % [s.trigger.__str__() for s in UltiSnips_Manager._snips('',True)])
+    endif
+    for trigger in triggers
     	for word in words
     		if word == ''
     			let matches += [trigger] " Show all matches if word is empty
