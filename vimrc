@@ -215,6 +215,17 @@ autocmd BufReadCmd,FileReadCmd *.\(gpg\|asc\|pgp\)
 set dictionary+=~/vim/big-dict
 set complete+=k " Add dictionary search (as per dictionary option)
 
+"""" More Instantly Better Vim - Damian Conway tips {{{1
+
+"Hilight 81st column.
+highlight ColorColumn ctermbg=magenta ctermfg=blue
+call matchadd('ColorColumn', '\%81v', 100)
+
+" This rewires n and N to do the highlighing...
+nnoremap <silent> n   n:call hlnext#HLNext(0.4)<cr>
+nnoremap <silent> N   N:call hlnext#HLNext(0.4)<cr>
+
+"""" }}}1
 "map <C-Up> :bn<CR>
 "map <C-Down> :bp<CR>
 
