@@ -326,6 +326,7 @@ nnoremap <silent> N   N:call hlnext#HLNext(0.4)<cr>
 "command! -nargs=0 WtSct :call SqlServerCreateTables()
 "command! -nargs=0 WtOct :call OracleCreateTables()
 "
+"
 "nnoremap <F5> :buffers<CR>:buffer<Space>
 "
 "runtime! macros/editExisting.vim
