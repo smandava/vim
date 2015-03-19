@@ -2,6 +2,7 @@ function! OpenFitnesseInBrowser(fitnesseFile) abort
     let l:port='8086'
     if a:fitnesseFile =~ "wt\\"|let l:port='8085'| endif
     if a:fitnesseFile =~ "br202\\"|let l:port='8084'| endif
+    if a:fitnesseFile =~ "PU2\\"|let l:port='8087'| endif
     let l:part = fnamemodify(a:fitnesseFile,':t')
     let l:remaining = a:fitnesseFile
     let l:parts=[]
