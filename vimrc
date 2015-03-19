@@ -8,7 +8,7 @@ let maplocalleader=","
 set runtimepath=~/vim,$VIMRUNTIME
 source ~/vim/bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect('~/vim/bundle/{}')
-call pathogen#incubate()
+"call pathogen#incubate()
 call pathogen#helptags()
 
 """ }}}1
@@ -148,6 +148,7 @@ nnoremap <silent> <Leader>s :SyntasticCheck<CR>
 
 set statusline+=%{SyntasticStatuslineFlag()}
 let g:syntastic_html_checker='w3'
+"let g:syntastic_debug='1'
 
 """" }}}1
 
@@ -167,6 +168,8 @@ if (has('win32'))
 	vnoremap <BS> d
     let g:snippets_dir='~\vim\bundle\snipmate\snippets,~\vim\bundle\MyTweaks\snippets'
     let g:launcher_application='Launcher'
+    autocmd FileType ps1 :setl omnifunc=poshcomplete#CompleteCommand
+    autocmd FileType psm1 :setl omnifunc=poshcomplete#CompleteCommand
 endif
 
 """"}}}1
@@ -195,6 +198,7 @@ autocmd FileType xml let b:match_words = '<\(\w\w*\):</\1,{:}'
 
 
 """" UltiSnips {{{1
+let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsSnippetsDir='~/vim/UltiSnips'
 let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsDontReverseSearchPath="1"
@@ -334,4 +338,3 @@ nnoremap <silent> N   N:call hlnext#HLNext(0.4)<cr>
 "let g:tagbar_type_javascript = {
 "    \ 'ctagsbin' : 'c:\bin\jsctags.bat'
 "\ }
-
