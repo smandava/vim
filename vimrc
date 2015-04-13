@@ -230,8 +230,12 @@ nnoremap <silent> n   n:call hlnext#HLNext(0.4)<cr>
 nnoremap <silent> N   N:call hlnext#HLNext(0.4)<cr>
 
 """" }}}1
-"map <C-Up> :bn<CR>
-"map <C-Down> :bp<CR>
+
+"""" OmniSharp {{{1
+
+let g:Omnisharp_start_server = 0
+"
+"""" }}}1
 
 """" Session Persistence 
 """" History Preservation 
