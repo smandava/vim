@@ -10,11 +10,18 @@ function! ChangeTrnsportMode() abort
 	let listener = {}
 	function! listener.onComplete(item,method)
 		let g:wtMode=a:item
+        if g:wtMode ==? "Trunk"
+            let g:OmniSharp_port=19001
+        elseif (g:wtMode ==? "") 
+            let g:OmniSharp_port=19002
+        elseif (g:wtMode ==? "") 
+            let g:OmniSharp_port=19003
+        endif
 	endfunction
 	function! listener.onAbort()
 		echo "abort"
 	endfunction
-	call fuf#callbackitem#launch('', 0, '> ', listener, ['Trunk','br202','201','300','PU2'],0)
+	call fuf#callbackitem#launch('', 0, '> ', listener, ['Trunk','br202','PU2'],0)
 endfunction
 
 function! TrnsportFitness() abort
@@ -43,12 +50,11 @@ function! TrnsportCode() abort
 endfunction
 
 
+let g:OmniSharp_port=19000
 nnoremap <silent> <Leader>fa    :call TrnsportFitness()<CR>
 nnoremap <silent> <Leader>fw    :call TrnsportCode()<CR>
 nnoremap <silent> <Leader>fW    :call ChangeTrnsportMode()<CR>
 
-autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "wt\\"|setlocal tags+=c:\ngt\dat\csharptags_201| endif
-autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "300\\"|setlocal tags+=c:\ngt\dat\csharptags_300| endif
 autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "wtdev\\"|setlocal tags+=c:\ngt\dat\csharptags_Trunk| endif
 autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "br202\\"|setlocal tags+=c:\ngt\dat\csharptags_br202| endif
 autocmd BufRead,BufNewFile *.cs if expand("%:p") =~ "PU2\\"|setlocal tags+=c:\ngt\dat\csharptags_PU2| endif

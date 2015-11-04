@@ -1,5 +1,5 @@
 function! OpenFitnesseInBrowser(fitnesseFile) abort
-    let l:port='8086'
+    let l:port='8088'
     if a:fitnesseFile =~ "wt\\"|let l:port='8085'| endif
     if a:fitnesseFile =~ "br202\\"|let l:port='8084'| endif
     if a:fitnesseFile =~ "PU2\\"|let l:port='8087'| endif

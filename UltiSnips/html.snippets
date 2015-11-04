@@ -1,123 +1,71 @@
-snippet bst "Twitter BootStrap template"
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>$1</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="$2${3:css}/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    </head>
-    <body>
-       $5
-       <script src="$2${4:js}/jquery.js"></script> 
-       <script src="$2$4/bootstrap.min.js"></script> 
-    </body>
-</html>
-endsnippet
-
 snippet viewport "viewport metadata - responsive css" !b
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 endsnippet
 
-snippet hero "Description" !b
-<div class="hero-unit$1"$2>
-    $0
-</div>
-endsnippet
-
-snippet h "html headings" !
+snippet h "html headings" 
 <h$1>$0</h${1/(\w).*/$1/}>
 endsnippet
 
-snippet h1 "h1" !
+snippet h1 "h1" 
 <h1$1>$0</h1>
 endsnippet
 
-snippet h2 "h2" !
+snippet h2 "h2"
 <h2$1>$0</h2>
 endsnippet
 
-snippet h3 "h3" !
+snippet h3 "h3"
 <h3$1>$0</h3>
 endsnippet
 
-snippet h4 "h4" !
+snippet h4 "h4"
 <h4$1>$0</h4>
 endsnippet
 
-snippet h5 "h5" !
-<h5$1>$0</h5>
-endsnippet
 
-snippet h6 "h6" !
+snippet h6 "h6"
 <h6$1>$0</h6>
 endsnippet
 
-snippet #
+snippet # "id attribute"
 id="$0"
 endsnippet
 
-snippet .
+snippet . "class attribute"
 class="$0"
 endsnippet
 
-snippet "a btn" "Twitter BootStrap button with Anchor" 
-<a class="btn$1" ${2:href="${3:#}"}>$0</a>
+snippet script "script attribute"
+<script src="$0" />
 endsnippet
 
-snippet "b btn" "Twitter BootStrap button" 
-<button class="btn$1">$0</button>
-endsnippet
-
-global !p
-def complete(t, opts):
-    if t:
-        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
-    if len(opts) == 1:
-        return opts[0]
-    return "(" + '|'.join(opts) + ')'
-endglobal
-
-snippet btnc "Twitter BootStrap button colors" 
-$1`!p snip.rv=complete(t[1],['btn-primary','btn-info','btn-success','btn-warning','btn-danger','btn-inverse', 'btn-link'])`
-endsnippet
-
-snippet btns "Twitter BootStrap button sizes" 
-$1`!p snip.rv=complete(t[1],['btn-large','btn-small','btn-mini'])`
-endsnippet
-
-snippet row "Twitter BootStrap Row" 
-<div class="row">
-    $0
-</div>
-endsnippet
-
-snippet frow "Twitter BootStrap flex rowo" 
-<div class="row-fluid">
-    $0
-</div>
-endsnippet
-
-snippet bspan "Twitter BootStrap Span" 
-<div class="span$1">
-    $0
-</div>
-endsnippet
-
-snippet cont "Twitter BootStrap container" !b
-<div class="container$1">
-    $0
-</div>
-endsnippet
-
-snippet fcont "Twitter BootStrap fluid container" !b
-<div class="container-fluid$1">
-    $0
-</div>
+snippet itag "simple inline html tags" !b
+<$0 />
 endsnippet
 
 snippet tag "simple html tags" !b
 <$1>
     $0
 </${1/(\w+).*/$1/}>
+endsnippet
+
+snippet 1tag "simple html tags" !b
+<$1>$0</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet html5 "Basic html5 template" !b
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>$1</title>
+  </head>
+<body>
+  $0
+</body>
+</html>
+endsnippet
+
+snippet css 
+<link rel="stylesheet" type="text/css" href="$0" />
 endsnippet
